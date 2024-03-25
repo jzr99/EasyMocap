@@ -499,6 +499,7 @@ class BaseDataset(BaseBase):
         with Timer('read back', not self.timer):
             back_mask = self.read_backmask(imgname, self.image_args, info, blankshape=img.shape[:2])
         object_keys = info.get('object_keys', self.object_keys)
+        # print("self.object_args", self.object_args)
         objects = self.get_objects(self.root, info, object_keys, self.object_args)
         # sample the ray from image
         ray_o, ray_d, rgb, coord = self.sample_ray(img, back_mask, info, objects, debug=self.debug)

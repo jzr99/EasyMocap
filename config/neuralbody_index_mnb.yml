@@ -331,7 +331,7 @@ soccer1_6:
   opts_dict:
     data_share_args:
       sample_args:
-        nrays: 6144
+        nrays: 1024
       ranges: [0, 200, 1]
   opts:
     - data_share_args.object_args.allhuman.pids
@@ -346,3 +346,288 @@ soccer1_6:
     - 0.1
     - network_args.models.allball.network_args.share_view
     - True
+
+
+pair16_jump16_vitpose_4:
+  comment: "pair16_jump16_vitpose_4"
+  data: config/neuralbody/dataset/neuralbody_lightstage_multiobject_noground.yml
+  # data: config/neuralbody/dataset/neuralbody_lightstage_multiobject.yml
+  model: config/neuralbody/network/comp_neuralbody+back.yml
+  # model: config/neuralbody/network/comp_neuralbody+back+lightstage.yml
+  # model: config/neuralbody/network/comp_neuralbody+back+groundshadow.yml
+  base: config/neuralbody/utils/train_base.yml
+  trainer: config/neuralbody/utils/trainer_entropy.yml
+  visualizer: config/neuralbody/utils/vis_multi.yml
+  opts_dict:
+    network_args:
+      models:
+        allhuman:
+          pids: [0, 1]
+    data_share_args:
+      image_args:
+        ext: '.png'
+      ranges: [0, 90, 1]
+      # subs: ['02', '05' , '08', '11', '14', '16', '19', '22']
+      subs: ['4',]
+      object_args:
+        allhuman:
+          pids: [0, 1]
+      sample_args:
+        nrays: 1024
+    data_val_args:
+      image_args:
+          ext: '.png'
+      object_keys: [human_0, human_1]
+      # subs: ['02', '05' , '08', '11', '14', '16', '19', '22']
+      subs: ['88',]
+      image_args:
+        scale: 1.
+    data_demo_args:
+      camera_args:
+        method: mean
+        loop: True
+        allstep: 600
+        H: 1024
+        W: 1024
+      demo_args:
+        mode: scripts
+        stages:
+          normal:
+            frame: [0, 170, 1]
+            view: [0, 510, 3]
+            object_keys: []
+          disappear:
+            frame: [170, 171, 1]
+            view: [510, 600, 2]
+            object_keys: []
+            effect: disappear
+            effect_args:
+              key: ['human_0', 'human_1']
+          bullet:
+            frame: [170, 171, 1]
+            view: [0, 510, 2]
+            object_keys: [background, ground, human_2]
+          end:
+            frame: [170, 200, 1]
+            view: [510, 570, 2]
+            object_keys: [background, ground, human_2]
+          appear:
+            frame: [199, 200, 1]
+            view: [570, 600, 2]
+            object_keys: []
+            effect: appear
+            effect_args:
+              key: ['human_0', 'human_1']
+
+pair15_fight15_vitpose_4:
+  comment: "pair15_fight15_vitpose_4"
+  data: config/neuralbody/dataset/neuralbody_lightstage_multiobject_noground.yml
+  # data: config/neuralbody/dataset/neuralbody_lightstage_multiobject.yml
+  model: config/neuralbody/network/comp_neuralbody+back.yml
+  # model: config/neuralbody/network/comp_neuralbody+back+lightstage.yml
+  # model: config/neuralbody/network/comp_neuralbody+back+groundshadow.yml
+  base: config/neuralbody/utils/train_base.yml
+  trainer: config/neuralbody/utils/trainer_entropy.yml
+  visualizer: config/neuralbody/utils/vis_multi.yml
+  opts_dict:
+    network_args:
+      models:
+        allhuman:
+          pids: [0, 1]
+    data_share_args:
+      image_args:
+        ext: '.png'
+      ranges: [0, 150, 1]
+      # subs: ['02', '05' , '08', '11', '14', '16', '19', '22']
+      subs: ['4',]
+      object_args:
+        allhuman:
+          pids: [0, 1]
+      sample_args:
+        nrays: 1024
+    data_val_args:
+      image_args:
+          ext: '.png'
+      object_keys: [human_0, human_1]
+      # subs: ['02', '05' , '08', '11', '14', '16', '19', '22']
+      subs: ['88',]
+      image_args:
+        scale: 1.
+    data_demo_args:
+      camera_args:
+        method: mean
+        loop: True
+        allstep: 600
+        H: 1024
+        W: 1024
+      demo_args:
+        mode: scripts
+        stages:
+          normal:
+            frame: [0, 170, 1]
+            view: [0, 510, 3]
+            object_keys: []
+          disappear:
+            frame: [170, 171, 1]
+            view: [510, 600, 2]
+            object_keys: []
+            effect: disappear
+            effect_args:
+              key: ['human_0', 'human_1']
+          bullet:
+            frame: [170, 171, 1]
+            view: [0, 510, 2]
+            object_keys: [background, ground, human_2]
+          end:
+            frame: [170, 200, 1]
+            view: [510, 570, 2]
+            object_keys: [background, ground, human_2]
+          appear:
+            frame: [199, 200, 1]
+            view: [570, 600, 2]
+            object_keys: []
+            effect: appear
+            effect_args:
+              key: ['human_0', 'human_1']
+
+pair19_piggyback19_vitpose_4:
+  comment: "pair19_piggyback19_vitpose_4"
+  data: config/neuralbody/dataset/neuralbody_lightstage_multiobject_noground.yml
+  # data: config/neuralbody/dataset/neuralbody_lightstage_multiobject.yml
+  model: config/neuralbody/network/comp_neuralbody+back.yml
+  # model: config/neuralbody/network/comp_neuralbody+back+lightstage.yml
+  # model: config/neuralbody/network/comp_neuralbody+back+groundshadow.yml
+  base: config/neuralbody/utils/train_base.yml
+  trainer: config/neuralbody/utils/trainer_entropy.yml
+  visualizer: config/neuralbody/utils/vis_multi.yml
+  opts_dict:
+    network_args:
+      models:
+        allhuman:
+          pids: [0, 1]
+    data_share_args:
+      image_args:
+        ext: '.png'
+      ranges: [0, 150, 1]
+      # subs: ['02', '05' , '08', '11', '14', '16', '19', '22']
+      subs: ['4',]
+      object_args:
+        allhuman:
+          pids: [0, 1]
+      sample_args:
+        nrays: 1024
+    data_val_args:
+      image_args:
+          ext: '.png'
+      object_keys: [human_0, human_1]
+      # subs: ['02', '05' , '08', '11', '14', '16', '19', '22']
+      subs: ['88',]
+      image_args:
+        scale: 1.
+    data_demo_args:
+      camera_args:
+        method: mean
+        loop: True
+        allstep: 600
+        H: 1024
+        W: 1024
+      demo_args:
+        mode: scripts
+        stages:
+          normal:
+            frame: [0, 170, 1]
+            view: [0, 510, 3]
+            object_keys: []
+          disappear:
+            frame: [170, 171, 1]
+            view: [510, 600, 2]
+            object_keys: []
+            effect: disappear
+            effect_args:
+              key: ['human_0', 'human_1']
+          bullet:
+            frame: [170, 171, 1]
+            view: [0, 510, 2]
+            object_keys: [background, ground, human_2]
+          end:
+            frame: [170, 200, 1]
+            view: [510, 570, 2]
+            object_keys: [background, ground, human_2]
+          appear:
+            frame: [199, 200, 1]
+            view: [570, 600, 2]
+            object_keys: []
+            effect: appear
+            effect_args:
+              key: ['human_0', 'human_1']
+
+pair17_dance17_vitpose_28:
+  comment: "pair17_dance17_vitpose_28"
+  data: config/neuralbody/dataset/neuralbody_lightstage_multiobject_noground.yml
+  # data: config/neuralbody/dataset/neuralbody_lightstage_multiobject.yml
+  model: config/neuralbody/network/comp_neuralbody+back.yml
+  # model: config/neuralbody/network/comp_neuralbody+back+lightstage.yml
+  # model: config/neuralbody/network/comp_neuralbody+back+groundshadow.yml
+  base: config/neuralbody/utils/train_base.yml
+  trainer: config/neuralbody/utils/trainer_entropy.yml
+  visualizer: config/neuralbody/utils/vis_multi.yml
+  opts_dict:
+    network_args:
+      models:
+        allhuman:
+          pids: [0, 1]
+    data_share_args:
+      image_args:
+        ext: '.png'
+      ranges: [0, 125, 1]
+      # subs: ['02', '05' , '08', '11', '14', '16', '19', '22']
+      subs: ['28',]
+      object_args:
+        allhuman:
+          pids: [0, 1]
+      sample_args:
+        nrays: 1024
+    data_val_args:
+      image_args:
+          ext: '.png'
+      object_keys: [human_0, human_1]
+      # subs: ['02', '05' , '08', '11', '14', '16', '19', '22']
+      subs: ['16',]
+      image_args:
+        scale: 1.
+    data_demo_args:
+      camera_args:
+        method: mean
+        loop: True
+        allstep: 600
+        H: 1024
+        W: 1024
+      demo_args:
+        mode: scripts
+        stages:
+          normal:
+            frame: [0, 170, 1]
+            view: [0, 510, 3]
+            object_keys: []
+          disappear:
+            frame: [170, 171, 1]
+            view: [510, 600, 2]
+            object_keys: []
+            effect: disappear
+            effect_args:
+              key: ['human_0', 'human_1']
+          bullet:
+            frame: [170, 171, 1]
+            view: [0, 510, 2]
+            object_keys: [background, ground, human_2]
+          end:
+            frame: [170, 200, 1]
+            view: [510, 570, 2]
+            object_keys: [background, ground, human_2]
+          appear:
+            frame: [199, 200, 1]
+            view: [570, 600, 2]
+            object_keys: []
+            effect: appear
+            effect_args:
+              key: ['human_0', 'human_1']

@@ -10,16 +10,17 @@ from tqdm import tqdm
 from easymocap.mytools.file_utils import read_json, write_keypoints3d, write_vertices, write_smpl
 
 # Input and output path
-database = '/nas/home/shuaiqing/datasets/HI4D'
-outdatabase = '/nas/home/shuaiqing/datasets/HI4D_easymocap'
+database = '/media/ubuntu/hdd/Hi4D'
+outdatabase = '/media/ubuntu/hdd/easymocap/EasyMocap/data/Hi4D_easymocap'
 
 # After convering, use
 #     python3 apps/calibration/vis_camera_by_open3d.py ${data} --pcd ${data}/mesh-test.obj
 # for visualization
 
 seqlist = [
-    'pair10/dance10',
-    'pair32/pose32',
+    'pair16/jump16'
+    # 'pair10/dance10',
+    # 'pair32/pose32',
     # 'pair09/hug09',
     # 'pair00/fight00',
     # 'pair00/hug00',
